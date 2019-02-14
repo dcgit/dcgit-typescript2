@@ -10,7 +10,10 @@ module.exports = {
     output: {
       path: path.resolve(__dirname, 'dist')
     },
-    entry: './src/index.ts',
+    entry: {
+        'my-label': ['./src/index.ts'],
+        'MYNS': './src/Shared/MYNS.ts'
+    },
     module: {
         rules: [
             {
@@ -21,10 +24,10 @@ module.exports = {
     },
     resolve: {
         extensions: [ '.ts', '.tsx', '.js' ]
-    },
+    }/*,
     plugins: [
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': "development"
         }),
-      ]
+    ]*/
 };

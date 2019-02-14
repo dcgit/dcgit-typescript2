@@ -81,32 +81,44 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.ts");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/Shared/MYNS.ts");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/index.ts":
-/*!**********************!*\
-  !*** ./src/index.ts ***!
-  \**********************/
+/***/ "./src/Shared/MYNS.Analytics.ts":
+/*!**************************************!*\
+  !*** ./src/Shared/MYNS.Analytics.ts ***!
+  \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nexports.__esModule = true;\nvar render = __webpack_require__(/*! ./render */ \"./src/render.ts\");\nrender();\n\n\n//# sourceURL=webpack:///./src/index.ts?");
+eval("\nvar analytics = {};\nanalytics.logClick = function () {\n};\nmodule.exports = analytics;\n\n\n//# sourceURL=webpack:///./src/Shared/MYNS.Analytics.ts?");
 
 /***/ }),
 
-/***/ "./src/render.ts":
-/*!***********************!*\
-  !*** ./src/render.ts ***!
-  \***********************/
+/***/ "./src/Shared/MYNS.Utils.ts":
+/*!**********************************!*\
+  !*** ./src/Shared/MYNS.Utils.ts ***!
+  \**********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nfunction render() {\n    var elems = document.getElementsByTagName('my-label');\n    for (var i = 0; i < elems.length; i++) {\n        var title = \"[none]\";\n        if (elems[i].hasAttribute('data-title')) {\n            title = elems[i].getAttribute('data-title');\n        }\n        elems[i].innerHTML = \"<h4> Hello World \" + i.toString() + \" \" + title + \"</h4>\";\n    }\n    ;\n}\nmodule.exports = render;\n\n\n//# sourceURL=webpack:///./src/render.ts?");
+eval("\nvar utils = {};\nutils.logClick = function () {\n    utils.logConsole(\"received click\");\n};\nutils.logConsole = function (msg) {\n    console.log(\"logConsole called:\" + msg);\n};\nmodule.exports = utils;\n\n\n//# sourceURL=webpack:///./src/Shared/MYNS.Utils.ts?");
+
+/***/ }),
+
+/***/ "./src/Shared/MYNS.ts":
+/*!****************************!*\
+  !*** ./src/Shared/MYNS.ts ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar _analytics = __webpack_require__(/*! ./MYNS.Analytics */ \"./src/Shared/MYNS.Analytics.ts\");\nvar _utils = __webpack_require__(/*! ./MYNS.Utils */ \"./src/Shared/MYNS.Utils.ts\");\nvar MYNS = {};\nMYNS.Analytics = _analytics;\nMYNS.Utils = _utils;\nwindow[\"MYNS\"] = MYNS;\nmodule.exports = MYNS;\n\n\n//# sourceURL=webpack:///./src/Shared/MYNS.ts?");
 
 /***/ })
 

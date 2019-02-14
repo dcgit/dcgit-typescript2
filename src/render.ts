@@ -9,6 +9,8 @@ function render() {
         }
         elems[i].innerHTML = "<h4> Hello World " + i.toString() + " " + title + "</h4>";
     };
+
+    window["MYNS"].Utils.logConsole("my-label loaded");
 }
 
 export = render;
